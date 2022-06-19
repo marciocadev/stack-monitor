@@ -2,6 +2,18 @@
 
 exports[`Stack monitor Snapshot 1`] = `
 Object {
+  "Outputs": Object {
+    "ChannelIdOutput": Object {
+      "Value": Object {
+        "Ref": "LazyChannelId",
+      },
+    },
+    "WorkspaceIdOutput": Object {
+      "Value": Object {
+        "Ref": "LazyWorkspaceId",
+      },
+    },
+  },
   "Parameters": Object {
     "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",

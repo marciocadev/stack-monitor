@@ -1,4 +1,4 @@
-import { App, CfnParameter, Stack, StackProps } from 'aws-cdk-lib';
+import { App, CfnOutput, CfnParameter, Stack, StackProps } from 'aws-cdk-lib';
 import { LoggingLevel, SlackChannelConfiguration } from 'aws-cdk-lib/aws-chatbot';
 import { RetentionDays } from 'aws-cdk-lib/aws-logs';
 import { Topic } from 'aws-cdk-lib/aws-sns';
@@ -13,7 +13,13 @@ export class MyStack extends Stack {
     });
 
     const workspaceId = new CfnParameter(this, 'Lazy::WorkspaceId');
+    new CfnOutput(this, 'WorkspaceIdOutput', {
+      value: workspaceId.valueAsString,
+    });
     const channelId = new CfnParameter(this, 'Lazy::ChannelId');
+    new CfnOutput(this, 'ChannelIdOutput', {
+      value: channelId.valueAsString,
+    });
 
     new SlackChannelConfiguration(this, 'StackMonitoringChatbot', {
       slackChannelConfigurationName: 'stack-monitoring-channel',
