@@ -8,6 +8,14 @@ Object {
         "Ref": "LazyChannelId",
       },
     },
+    "TopicArnOutput": Object {
+      "Export": Object {
+        "Name": "stack-monitor-topic",
+      },
+      "Value": Object {
+        "Ref": "StackMonitoringTopic36E37431",
+      },
+    },
     "WorkspaceIdOutput": Object {
       "Value": Object {
         "Ref": "LazyWorkspaceId",

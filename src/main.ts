@@ -11,6 +11,10 @@ export class MyStack extends Stack {
     const topic = new Topic(this, 'StackMonitoringTopic', {
       topicName: 'stack-monitoring-topic',
     });
+    new CfnOutput(this, 'TopicArnOutput', {
+      value: topic.topicArn,
+      exportName: 'stack-monitor-topic',
+    });
 
     const workspaceId = new CfnParameter(this, 'Lazy::WorkspaceId');
     new CfnOutput(this, 'WorkspaceIdOutput', {
