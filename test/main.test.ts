@@ -20,4 +20,22 @@ describe('Stack monitor', () => {
       TopicName: 'stack-monitoring-topic',
     });
   });
+
+  test('SlackChannelConfiguration name', () => {
+    template.hasResourceProperties('AWS::Chatbot::SlackChannelConfiguration', {
+      ConfigurationName: 'stack-monitoring-channel',
+    });
+  });
+
+  test('WorskpaceId type', () => {
+    template.hasParameter('LazyWorkspaceId', {
+      Type: 'String',
+    });
+  });
+
+  test('ChannelId type', () => {
+    template.hasParameter('LazyChannelId', {
+      Type: 'String',
+    });
+  });
 });
