@@ -5,6 +5,9 @@ const project = new awscdk.AwsCdkTypeScriptApp({
   name: 'stack-monitor',
   projenrcTs: true,
 
+  release: true,
+  codeCov: true,
+
   // deps: [],                /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
   // devDeps: [],             /* Build dependencies for this module. */
