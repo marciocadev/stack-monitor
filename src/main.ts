@@ -1,4 +1,6 @@
-import { App, Stack, StackProps } from 'aws-cdk-lib';
+import { App, CfnOutput, CfnParameter, Stack, StackProps } from 'aws-cdk-lib';
+import { LoggingLevel, SlackChannelConfiguration } from 'aws-cdk-lib/aws-chatbot';
+import { RetentionDays } from 'aws-cdk-lib/aws-logs';
 import { Topic } from 'aws-cdk-lib/aws-sns';
 import { Construct } from 'constructs';
 
@@ -6,8 +8,26 @@ export class MyStack extends Stack {
   constructor(scope: Construct, id: string, props: StackProps = {}) {
     super(scope, id, props);
 
-    new Topic(this, 'StackMonitoringTopic', {
+    const topic = new Topic(this, 'StackMonitoringTopic', {
       topicName: 'stack-monitoring-topic',
+    });
+
+    const workspaceId = new CfnParameter(this, 'Lazy::WorkspaceId');
+    new CfnOutput(this, 'WorkspaceIdOutput', {
+      value: workspaceId.valueAsString,
+    });
+    const channelId = new CfnParameter(this, 'Lazy::ChannelId');
+    new CfnOutput(this, 'ChannelIdOutput', {
+      value: channelId.valueAsString,
+    });
+
+    new SlackChannelConfiguration(this, 'StackMonitoringChatbot', {
+      slackChannelConfigurationName: 'stack-monitoring-channel',
+      slackWorkspaceId: workspaceId.valueAsString,
+      slackChannelId: channelId.valueAsString,
+      notificationTopics: [topic],
+      logRetention: RetentionDays.ONE_DAY,
+      loggingLevel: LoggingLevel.INFO,
     });
   }
 }
