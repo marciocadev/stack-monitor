@@ -1,12 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Snapshot 1`] = `
+exports[`Stack monitor Snapshot 1`] = `
 Object {
   "Parameters": Object {
     "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "StackMonitoringTopic36E37431": Object {
+      "Properties": Object {
+        "TopicName": "stack-monitoring-topic",
+      },
+      "Type": "AWS::SNS::Topic",
     },
   },
   "Rules": Object {
