@@ -9,6 +9,7 @@ export class MyStack extends Stack {
     super(scope, id, props);
 
     console.log('mergify2');
+    console.log('marcio');
 
     const topic = new Topic(this, 'StackMonitoringTopic', {
       topicName: 'stack-monitoring-topic',
