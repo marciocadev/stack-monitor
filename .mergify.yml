@@ -10,7 +10,8 @@ pull_request_rules:
   - name: Label core contributions
     actions:
       label:
-        - contribution/core
+        add:
+          - contribution/core
     conditions:
       - author~=^(lazinessdevs)$
   - name: Automatic merge on approval and successful build
