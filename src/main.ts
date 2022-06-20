@@ -33,6 +33,8 @@ export class MyStack extends Stack {
       logRetention: RetentionDays.ONE_DAY,
       loggingLevel: LoggingLevel.INFO,
     });
+
+    console.log('teste1');
   }
 }
 
