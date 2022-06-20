@@ -8,6 +8,8 @@ export class MyStack extends Stack {
   constructor(scope: Construct, id: string, props: StackProps = {}) {
     super(scope, id, props);
 
+    console.log('mergify2');
+
     const topic = new Topic(this, 'StackMonitoringTopic', {
       topicName: 'stack-monitoring-topic',
     });
