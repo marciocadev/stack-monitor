@@ -16,7 +16,7 @@ const project = new awscdk.AwsCdkTypeScriptApp({
         name: 'Label core contributions',
         actions: {
           label: {
-            add: ['contribution/core']
+            add: ['contribution/core'],
           },
         },
         conditions: ['author~=^(lazinessdevs)$'],
