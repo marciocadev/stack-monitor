@@ -7,6 +7,12 @@ queue_rules:
       - -label~=(do-not-merge)
       - status-success=build
 pull_request_rules:
+  - name: Label core contributions
+    actions:
+      label:
+        - contribution/core
+    conditions:
+      - author~=^(lazinessdevs)$
   - name: Automatic merge on approval and successful build
     actions:
       delete_head_branch: {}
